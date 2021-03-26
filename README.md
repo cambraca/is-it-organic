@@ -23,8 +23,14 @@ The Twitter API endpoint used apparently won't give you results older than a wee
    ```
 
 3. Run `$ docker-compose up -d` to start the Postgres database server.
-4. Run `$ make run QUERY=#MyHashtag`. This will search until there are no more results and store everything in the database.
-5. Run SQL queries to get useful data. The following will get data about the users, sorted by the date of their first tweet with the hashtag:
+4. Using any Postgres client, execute the queries from `schema.sql`. This will create two tables. Here is the connection string:
+
+   ```
+   host=localhost port=10593 user=postgres password=postgres dbname=postgres sslmode=disable
+   ```
+
+5. Run `$ make run QUERY=#MyHashtag`. This will search until there are no more results and store everything in the database.
+6. Run SQL queries to get useful data. The following will get data about the users, sorted by the date of their first tweet with the hashtag:
 
    ```SQL
    SELECT MIN(t.created_at) AS first_tweet_at,
