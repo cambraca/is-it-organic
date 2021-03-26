@@ -49,13 +49,13 @@ MainLoop:
 			fmt.Println(err)
 			break MainLoop
 		default:
-			saveSearchResults(recentSearch, query)
+			saveSearchResults(recentSearch.LookUps, query)
 			if recentSearch.Meta.ResultCount == 0 {
 				fmt.Println("Finished!")
 				break MainLoop
 			}
 			if recentSearch.Meta.NextToken == "" {
-				fmt.Println("Next token not found")
+				fmt.Println("Finished! (next token not found)")
 				break MainLoop
 			}
 			nextToken = recentSearch.Meta.NextToken
