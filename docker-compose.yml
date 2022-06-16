@@ -8,3 +8,10 @@ services:
       - POSTGRES_PASSWORD=postgres
     volumes:
       - './postgres-data:/var/lib/postgresql/data:rw'
+      - './postgresql-dev.conf:/var/lib/postgresql/data/postgresql.conf'
+
+  go:
+    image: golang:1.15.15-alpine
+    volumes:
+      - '.:/src'
+    working_dir: /src

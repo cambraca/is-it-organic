@@ -6,7 +6,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
-const postgresConn = "host=localhost port=10593 user=postgres password=postgres dbname=postgres sslmode=disable"
+const postgresConn = "host=postgres port=5432 user=postgres password=postgres dbname=postgres sslmode=disable"
 
 var db *sql.DB
 
